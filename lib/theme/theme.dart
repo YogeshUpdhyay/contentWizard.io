@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
 const Map<int, Color> themeColors = {
-  50: Color(0xffE7E7FF),
-  200: Color(0xffC6C4FF),
-  400: Color(0xff9990FF),
-  600: Color(0xff6B4EFF),
-  800: Color(0xff5538EE)
+  50:Color.fromRGBO(107,78,255, .1),
+  100:Color.fromRGBO(107,78,255, .2),
+  200:Color.fromRGBO(107,78,255, .3),
+  300:Color.fromRGBO(107,78,255, .4),
+  400:Color.fromRGBO(107,78,255, .5),
+  500:Color.fromRGBO(107,78,255, .6),
+  600:Color.fromRGBO(107,78,255, .7),
+  700:Color.fromRGBO(107,78,255, .8),
+  800:Color.fromRGBO(107,78,255, .9),
+  900:Color.fromRGBO(107,78,255, 1),
 };
 
 MaterialColor themeColor = const MaterialColor(0xff6B4EFF, themeColors);
