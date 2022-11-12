@@ -42,7 +42,7 @@ class WalkThrough extends HookConsumerWidget {
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(24.0),
           child: Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +57,8 @@ class WalkThrough extends HookConsumerWidget {
                 PillButton(
                   buttonText: "Continue with Google",
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, "/setup");
+                    print("pushing named");
+                    Navigator.pushNamed(context, "/setup");
                   }
                 )
               ],

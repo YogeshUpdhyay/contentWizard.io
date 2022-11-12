@@ -22,18 +22,7 @@ class MyApp extends HookConsumerWidget {
       theme: ThemeData(
         primarySwatch: themeColor,
         fontFamily: "Inter",
-        textTheme: const TextTheme(
-          displayMedium: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Inter',
-            fontSize: 28,
-            fontWeight: FontWeight.w900,
-          ),
-          bodyMedium: TextStyle(
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.bold
-          )
-        )
+        textTheme: textTheme
       ),
       home: const WalkThrough(),
       routes:  {
@@ -48,18 +37,27 @@ class Setup extends HookConsumerWidget {
   const Setup({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SafeArea(
+    return Scaffold(
+      body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Create a Workspace",
               style: Theme.of(context).textTheme.displayLarge,
-            )
+            ),
+            const SizedBox(height: 10,),
+            Text(
+              "Create your first workspace to start your journey!",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const TextField()
           ],
         ),
       ),
+    ),
     );
   }
 }
