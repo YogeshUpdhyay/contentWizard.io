@@ -47,7 +47,10 @@ class WalkThrough extends HookConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Center(child: SvgPicture.asset("assets/svg/logo.svg")),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Center(child: SvgPicture.asset("assets/svg/logo.svg")),
+                ),
                 const Expanded(
                   child: WalkThroughCard(
                     cardImage: "assets/img/wthOne.png", 
