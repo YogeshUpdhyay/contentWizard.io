@@ -3,33 +3,59 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class PillButton extends StatelessWidget {
 
-  const PillButton({super.key, required this.buttonText, required this.onPressed, this.buttonLogo});
+  const PillButton({
+    super.key, 
+    required this.onPressed, 
+    required this.text,
+    this.color, 
+    this.logo, 
+    this.textColor
+  });
 
-  final String buttonText;
+  final String text;
   final VoidCallback onPressed;
-  final String? buttonLogo;
+  final String? logo;
+  final Color? color;
+  final Color? textColor;
+
+  Widget getButtonContent(BuildContext context) {
+    if (logo == null) {
+      return Center(
+        child: Text(
+          text, 
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: textColor ?? Colors.white
+          )
+        )
+      );
+    }
+    return Row(
+      children: [
+        SvgPicture.asset(logo!),
+        Center(
+          child: Text(
+            text, 
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: textColor ?? Colors.white
+            )
+          )
+        )
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () => onPressed(),
-      style: ButtonStyle(
-        alignment: Alignment.center,
-        backgroundColor: const MaterialStatePropertyAll<Color>(Colors.white),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          const RoundedRectangleBorder(
-            borderRadius: BorderRadius.horizontal(left: Radius.circular(50), right: Radius.circular(50)),
-            side: BorderSide(color: Colors.black)
-          )
-        ),
-        padding: const MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.all(20))
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color ?? Theme.of(context).colorScheme.primary,
+        fixedSize: const Size.fromHeight(48.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50.0)
+        )
       ),
-      child: Row(
-        children: [
-          SvgPicture.asset("assets/svg/googleLogo.svg"),
-          Expanded(child: Center(child: Text(buttonText, style: Theme.of(context).textTheme.bodyMedium))),
-        ],
-      ),
+      child: getButtonContent(context),
     );
   }
 }

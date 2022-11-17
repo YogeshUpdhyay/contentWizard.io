@@ -58,11 +58,13 @@ class WalkThrough extends HookConsumerWidget {
                   ),
                 ),
                 PillButton(
-                  buttonText: "Continue with Google",
+                  text: "Continue with Google",
                   onPressed: () {
-                    print("pushing named");
                     Navigator.pushNamed(context, "/setup");
-                  }
+                  },
+                  color: Colors.white,
+                  logo: "assets/svg/googleLogo.svg",
+                  textColor: Colors.black,
                 )
               ],
             ),

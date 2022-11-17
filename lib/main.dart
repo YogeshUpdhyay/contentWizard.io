@@ -1,3 +1,4 @@
+import 'package:contentwiz/ui/components/PillButton.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:contentwiz/ui/screens/WalkThrough.dart';
@@ -89,6 +90,12 @@ class Setup extends HookConsumerWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   )
                 ],
+              ),
+              const Spacer(),
+              PillButton(
+                text: "Continue", 
+                onPressed: () {},
+                color: Theme.of(context).colorScheme.primary,
               )
             ],
           ),
