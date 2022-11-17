@@ -32,13 +32,15 @@ class PillButton extends StatelessWidget {
     return Row(
       children: [
         SvgPicture.asset(logo!),
-        Center(
-          child: Text(
-            text, 
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: textColor ?? Colors.white
+        Expanded(
+          child: Center(
+            child: Text(
+              text, 
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: textColor ?? Colors.white
+              )
             )
-          )
+          ),
         )
       ],
     );
