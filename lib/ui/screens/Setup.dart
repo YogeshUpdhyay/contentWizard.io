@@ -5,6 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final workspaceProvider = StateProvider<String>((ref) => "");
 final isTeamDefaultCheckedProvider = StateProvider<bool>((ref) => true);
+final teamProvider = StateProvider<List<String>>((ref) => [],);
+final teammateEmailProvider = StateProvider<String>((ref) => "");
 
 class Setup extends HookConsumerWidget {
   const Setup({super.key});
@@ -13,6 +15,17 @@ class Setup extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bool isTeamDefaultChecked = ref.watch(isTeamDefaultCheckedProvider);
 
+    void onContinue() {
+      if (isTeamDefaultChecked) {
+        // continue with API call and add
+        // team and workspace
+      }
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SetupTeam())
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -20,6 +33,7 @@ class Setup extends HookConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 10.0,),
               const LinearProgressIndicator(
                 value: 0.5,
               ),
@@ -64,7 +78,49 @@ class Setup extends HookConsumerWidget {
               const Spacer(),
               PillButton(
                 text: "Continue", 
-                onPressed: () {}
+                onPressed: onContinue
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SetupTeam extends HookConsumerWidget {
+  const SetupTeam({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pop(context), 
+                icon: const Icon(Icons.arrow_back)
+              ),
+              const SizedBox(height: 10.0,),
+              Text(
+                "Invite teammates",
+                style: Theme.of(context).textTheme.displayMedium,
+              ),
+              const SizedBox(height: 10.0,),
+              TextField(
+                onChanged: ((value) => ref.read(teammateEmailProvider.notifier).state = value),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                )
+              ),
+              const Spacer(),
+              PillButton(
+                onPressed: () {}, 
+                text: "Continue"
               )
             ],
           ),
