@@ -43,31 +43,29 @@ class WalkThrough extends HookConsumerWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.all(24.0),
-          child: Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(child: SvgPicture.asset("assets/svg/logo.svg")),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Center(child: SvgPicture.asset("assets/svg/logo.svg")),
+              ),
+              const Expanded(
+                child: WalkThroughCard(
+                  cardImage: "assets/img/wthOne.png", 
+                  cardCaption: "Manage all your leads on a single platform!"
                 ),
-                const Expanded(
-                  child: WalkThroughCard(
-                    cardImage: "assets/img/wthOne.png", 
-                    cardCaption: "Manage all your leads on a single platform!"
-                  ),
-                ),
-                PillButton(
-                  text: "Continue with Google",
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/setup");
-                  },
-                  color: Colors.white,
-                  logo: "assets/svg/googleLogo.svg",
-                  textColor: Colors.black,
-                )
-              ],
-            ),
+              ),
+              PillButton(
+                text: "Continue with Google",
+                onPressed: () {
+                  Navigator.pushNamed(context, "/setup");
+                },
+                color: Colors.white,
+                logo: "assets/svg/googleLogo.svg",
+                textColor: Colors.black,
+              )
+            ],
           ),
         ),
       ),

@@ -37,6 +37,8 @@ dependencies:
     cupertino_icons: ^1.0.2
     flutter_svg: ^1.1.6
     card_swiper: ^2.0.4
+    heroicons: ^0.7.0
+    pie_chart: ^5.3.2
 
 dev_dependencies:
     flutter_test:
