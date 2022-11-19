@@ -1,3 +1,4 @@
+import 'package:contentwiz/main.dart';
 import 'package:contentwiz/ui/components/PillButton.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -119,7 +120,7 @@ class SetupTeam extends HookConsumerWidget {
               ),
               const Spacer(),
               PillButton(
-                onPressed: () {}, 
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Dashboard())), 
                 text: "Continue"
               )
             ],
