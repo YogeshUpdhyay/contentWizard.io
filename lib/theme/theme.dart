@@ -48,6 +48,11 @@ const textTheme = TextTheme(
     fontSize: 16,
     color: Colors.black
   ),
+  bodySmall: TextStyle(
+    fontFamily: 'Inter',
+    color: Colors.black,
+    fontSize: 12
+  ),
 
   // title texts
   titleMedium: TextStyle(

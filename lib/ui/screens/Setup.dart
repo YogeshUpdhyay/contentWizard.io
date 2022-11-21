@@ -1,6 +1,7 @@
 import 'package:contentwiz/main.dart';
 import 'package:contentwiz/ui/components/PillButton.dart';
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
 // ignore: depend_on_referenced_packages
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -102,7 +103,9 @@ class SetupTeam extends HookConsumerWidget {
             children: [
               IconButton(
                 onPressed: () => Navigator.pop(context), 
-                icon: const Icon(Icons.arrow_back)
+                icon: const HeroIcon(HeroIcons.chevronLeft),
+                padding: EdgeInsets.zero,
+                alignment: Alignment.centerLeft,
               ),
               const SizedBox(height: 10.0,),
               Text(
