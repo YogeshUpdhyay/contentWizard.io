@@ -18,6 +18,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      isThreeLine: true,
       leading: const CircleAvatar(backgroundImage: AssetImage("assets/img/avatar.png")),
       title: Text("Josiah Zayner", style: Theme.of(context).textTheme.bodyMedium,),
       subtitle: Column(
@@ -87,13 +88,12 @@ class Inbox extends HookConsumerWidget {
             const SizedBox(height: 10.0,),
             // messages section
             Expanded(
-              child: ListView.separated(
+              child: ListView.builder(
                 itemCount: 15,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(key: key,);
-                },
-                separatorBuilder: (context, index) => const SizedBox(height: 10.0,),
+                }
               ),
             )
           ],

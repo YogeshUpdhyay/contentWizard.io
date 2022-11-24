@@ -26,7 +26,7 @@ class SettingsSheet extends HookConsumerWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Premium Memebership", style: Theme.of(context).textTheme.displayMedium?.copyWith(color: Colors.white),),
+                      Text("Premium Memebership", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: Colors.white),),
                       const SizedBox(height: 10.0,),
                       Text("Upgrade for more features", style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.white),)
                     ],
@@ -36,7 +36,60 @@ class SettingsSheet extends HookConsumerWidget {
             ),
           ),
 
+          // notifications
+          const SizedBox(height: 20,),
+          Text("Account", style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w900),),
+          const SizedBox(height: 20,),
 
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const HeroIcon(HeroIcons.bell),
+              const SizedBox(width: 20,),
+              Expanded(
+                child: Text("Notifications", style: Theme.of(context).textTheme.bodyMedium)
+              ),
+              const HeroIcon(HeroIcons.chevronRight)
+            ],
+          ),
+
+          // extras
+          const SizedBox(height: 20,),
+          Text("More", style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w900),),
+          const SizedBox(height: 20,),
+
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const HeroIcon(HeroIcons.star),
+              const SizedBox(width: 20,),
+              Expanded(
+                child: Text("Rate & Review", style: Theme.of(context).textTheme.bodyMedium)
+              ),
+              const HeroIcon(HeroIcons.chevronRight)
+            ],
+          ),
+          const SizedBox(height: 20,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const HeroIcon(HeroIcons.questionMarkCircle),
+              const SizedBox(width: 20,),
+              Expanded(
+                child: Text("Help", style: Theme.of(context).textTheme.bodyMedium)
+              ),
+              const HeroIcon(HeroIcons.chevronRight)
+            ],
+          ),
+
+          Expanded(
+            child: Center(
+              child: TextButton(
+                onPressed: () {}, 
+                child: Text("Log out", style: Theme.of(context).textTheme.bodyMedium,)
+              )
+            ),
+          )
         ],
       ),
     );

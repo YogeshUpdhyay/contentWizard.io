@@ -42,9 +42,7 @@ class MyApp extends HookConsumerWidget {
   }
 }
 
-final currentIndexProvider = StateProvider<int>((ref) {
-  return 0;
-});
+final currentIndexProvider = StateProvider<int>((ref) => 0);
 
 class Dashboard extends HookConsumerWidget {
   const Dashboard({super.key});

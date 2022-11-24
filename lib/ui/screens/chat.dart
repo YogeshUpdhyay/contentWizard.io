@@ -58,6 +58,7 @@ class _ChatPageState extends State<ChatPage> {
           showUserAvatars: true,
           showUserNames: true,
           user: _user,
+          avatarBuilder: (userId) => const CircleAvatar(backgroundImage: AssetImage("assets/img/avatar.png")),
         ),
       );
 
